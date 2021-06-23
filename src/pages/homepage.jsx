@@ -1,11 +1,15 @@
-import React from 'react'
+import React from 'react';
+
+import Sidebar from '../components/Sidebar';
 
 const Homepage = () => {
-    return (
-        <div>
-            hello world
-        </div>
-    )
-}
+  return (
+    <div>
+     
+      <Sidebar />
+    
+    </div>
+  );
+};
 
-export default Homepage
+export default Homepage;
