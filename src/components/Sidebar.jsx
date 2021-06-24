@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   iconbutton: {
     marginRight: theme.spacing(2),
     [theme.breakpoints.up('sm')]: {
-      visibility:'hidden'
+      visibility: 'hidden',
     },
   },
   content: {
@@ -102,7 +102,7 @@ const Sidebar = () => {
             onClose={toggleSide}
           >
             <div className={classes.toolbar} />
-            <DrawerItem />
+            <DrawerItem  />
           </Drawer>
         </Hidden>
 
@@ -115,7 +115,7 @@ const Sidebar = () => {
             open
           >
             <div className={classes.toolbar} />
-            <DrawerItem />
+            <DrawerItem  />
           </Drawer>
         </Hidden>
       </nav>

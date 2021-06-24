@@ -59,13 +59,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DrawerItem = ({history}) => {
+const DrawerItem = ({ history }) => {
   const classes = useStyles();
   return (
     <List className={classes.List}>
       <div>
         <Button
-          onClick={()=> history.push('/signup')}
+          onClick={() => history.push('/signup')}
           variant='contained'
           color='primary'
         >
@@ -81,8 +81,7 @@ const DrawerItem = ({history}) => {
               button
               key={item}
               className={classes.ListItemButton}
-              
-              onClick={()=>history.push(link)}
+              onClick={() => history.push(link)}
             >
               <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText primary={item} />
