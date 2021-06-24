@@ -7,40 +7,17 @@ import {
   Toolbar,
   IconButton,
   Typography,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemIcon,
-  Button,
-  Link,
 } from '@material-ui/core';
-import {
-  Menu,
-  Create,
-  Home,
-  Bookmark,
-  ShoppingBasket,
-  Copyright,
-  GitHub,
-  Twitter,
-  LinkedIn,
-} from '@material-ui/icons';
+import { Menu } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
+import { DrawerItem } from './drawer';
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
-  ListItemText: {
-    borderRadius: '15px',
-    '&:hover': {
-      backgroundColor: 'rgba(59,130,246,0.5)',
-    },
-  },
-  link: {
-    padding: '10px',
-  },
+
   drawerPaper: {
     width: drawerWidth,
     backgroundColor: '#D1D5DB',
@@ -48,17 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   toolbar: theme.mixins.toolbar,
-  logo: {
-    height: '20vh',
-    width: '100%',
-  },
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    height: '90vh',
-  },
+
   drawer: {
     [theme.breakpoints.up('sm')]: {
       width: drawerWidth,
@@ -66,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appbar: {
     backgroundColor: 'transparent',
-    alignItems:'center',
+    alignItems: 'center',
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
@@ -83,26 +50,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-//sidebar items
-const drawerItems = [
-  {
-    item: 'Home',
-    icon: <Home />,
-  },
-  {
-    item: 'Categories',
-    icon: <ShoppingBasket />,
-  },
-  {
-    item: 'Add Recipe',
-    icon: <Create />,
-  },
-  {
-    item: 'Bookmark',
-    icon: <Bookmark />,
-  },
-];
-
 const Sidebar = () => {
   const [toggler, setToggle] = React.useState(false);
   const toggleSide = () => {
@@ -110,58 +57,6 @@ const Sidebar = () => {
   };
 
   const classes = useStyles();
-
-  const drawer = (
-    <List className={classes.container}>
-      <div>
-        <Button variant='contained' color='primary'>
-          Sign Up / Log In
-        </Button>
-      </div>
-      <div>
-        {drawerItems.map((drawerItem) => {
-          const { item, icon } = drawerItem;
-          return (
-            <ListItem button key={item} className={classes.ListItemText}>
-              <ListItemIcon>{icon}</ListItemIcon>
-              <ListItemText primary={item} />
-            </ListItem>
-          );
-        })}
-      </div>
-
-      <div>
-        <ListItem>Abubakar Ali</ListItem>
-        <ListItem>
-          <Copyright fontSize='small' />
-          2021 React Js
-        </ListItem>
-        <ListItem>
-          <Link
-            href='https://github.com/Devabubakar'
-            color='inherit'
-            className={classes.link}
-          >
-            <GitHub />
-          </Link>
-          <Link
-            href='https://github.com/Devabubakar'
-            color='inherit'
-            className={classes.link}
-          >
-            <Twitter />
-          </Link>
-          <Link
-            href='https://linkedin/in/Devabubakar'
-            color='inherit'
-            className={classes.link}
-          >
-            <LinkedIn />
-          </Link>
-        </ListItem>
-      </div>
-    </List>
-  );
 
   return (
     <div className={classes.root}>
@@ -191,7 +86,7 @@ const Sidebar = () => {
             onClose={toggleSide}
           >
             <div className={classes.toolbar} />
-            {drawer}
+            <DrawerItem />
           </Drawer>
         </Hidden>
 
@@ -204,8 +99,7 @@ const Sidebar = () => {
             open
           >
             <div className={classes.toolbar} />
-
-            {drawer}
+            <DrawerItem />
           </Drawer>
         </Hidden>
       </nav>
