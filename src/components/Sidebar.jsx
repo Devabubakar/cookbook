@@ -8,7 +8,7 @@ import {
   IconButton,
   Typography,
 } from '@material-ui/core';
-import { Menu } from '@material-ui/icons';
+import { Menu, Brightness2 } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 import DrawerItem from './drawer';
 
@@ -33,16 +33,24 @@ const useStyles = makeStyles((theme) => ({
   },
   appbar: {
     backgroundColor: 'transparent',
-    alignItems: 'center',
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
     },
   },
+  appbarItems: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  darkmode: {
+    color: 'black',
+    backgroundColor: '#e6e0e6',
+  },
   iconbutton: {
     marginRight: theme.spacing(2),
     [theme.breakpoints.up('sm')]: {
-      display: 'none',
+      visibility:'hidden'
     },
   },
   content: {
@@ -61,7 +69,7 @@ const Sidebar = () => {
   return (
     <div className={classes.root}>
       <AppBar className={classes.appbar}>
-        <Toolbar>
+        <Toolbar className={classes.appbarItems}>
           <IconButton
             color='primary'
             onClick={toggleSide}
@@ -69,9 +77,17 @@ const Sidebar = () => {
           >
             <Menu />
           </IconButton>
-          <Typography variant='h3' color='primary' align='center' noWrap>
-            CookBook
+          <Typography
+            variant='h4'
+            color='primary'
+            className={classes.LogoHeader}
+            noWrap
+          >
+            Cookbook
           </Typography>
+          <IconButton className={classes.darkmode}>
+            <Brightness2 />
+          </IconButton>
         </Toolbar>
       </AppBar>
 

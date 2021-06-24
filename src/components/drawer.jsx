@@ -101,10 +101,10 @@ const DrawerItem = ({history}) => {
           <Link href='https://github.com/Devabubakar' color='inherit'>
             <GitHub />
           </Link>
-          <Link href='https://github.com/Devabubakar' color='inherit'>
+          <Link href='https://twitter.com/Devabubakar' color='inherit'>
             <Twitter />
           </Link>
-          <Link href='https://linkedin/in/Devabubakar' color='inherit'>
+          <Link href='https://linkedin.com/in/Devabubakar' color='inherit'>
             <LinkedIn />
           </Link>
         </ListItem>
