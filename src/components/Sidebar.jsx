@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import { Menu } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
-import { DrawerItem } from './drawer';
+import DrawerItem from './drawer';
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
@@ -103,11 +103,6 @@ const Sidebar = () => {
           </Drawer>
         </Hidden>
       </nav>
-
-      <menu className={classes.content}>
-        <div className={classes.toolbar} />
-        <h1>Hello world</h1>
-      </menu>
     </div>
   );
 };

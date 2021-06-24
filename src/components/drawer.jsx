@@ -16,6 +16,7 @@ import {
   Twitter,
   LinkedIn,
 } from '@material-ui/icons';
+import { withRouter } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 
 //sidebar items
@@ -23,7 +24,7 @@ const drawerItems = [
   {
     item: 'Home',
     icon: <Home />,
-    link: '#',
+    link: '/',
   },
   {
     item: 'Categories',
@@ -58,12 +59,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const DrawerItem = () => {
+const DrawerItem = ({history}) => {
   const classes = useStyles();
   return (
     <List className={classes.List}>
       <div>
-        <Button component='a' href='/signup' variant='contained' color='primary'>
+        <Button
+          onClick={()=> history.push('/signup')}
+          variant='contained'
+          color='primary'
+        >
           Sign Up / Log In
         </Button>
       </div>
@@ -76,8 +81,8 @@ export const DrawerItem = () => {
               button
               key={item}
               className={classes.ListItemButton}
-              component='a'
-              href={link}
+              
+              onClick={()=>history.push(link)}
             >
               <ListItemIcon>{icon}</ListItemIcon>
               <ListItemText primary={item} />
@@ -107,3 +112,5 @@ export const DrawerItem = () => {
     </List>
   );
 };
+
+export default withRouter(DrawerItem);
