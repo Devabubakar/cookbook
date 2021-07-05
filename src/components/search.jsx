@@ -1,10 +1,10 @@
+import { IconButton, InputBase, Paper } from '@material-ui/core';
+import { Search as SearchIcon, Shuffle } from '@material-ui/icons';
 import React from 'react';
-import { Paper, IconButton, InputBase, } from '@material-ui/core';
-import { Shuffle, Search as SearchIcon } from '@material-ui/icons';
 
 const Search = () => {
   return (
-    <Paper component='form'>
+    <Paper component='form' >
       <IconButton>
         <Shuffle />
       </IconButton>

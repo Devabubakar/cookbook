@@ -7,10 +7,13 @@ import {
   Toolbar,
   IconButton,
   Typography,
+  useScrollTrigger,
 } from '@material-ui/core';
 import { Menu, Brightness2 } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 import DrawerItem from './drawer';
+
+//hide appbar on scroll
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
@@ -56,6 +59,10 @@ const useStyles = makeStyles((theme) => ({
   content: {
     padding: theme.spacing(3),
   },
+  hide: {
+    visibility: 'hidden',
+    display: 'none',
+  },
 }));
 
 const Sidebar = () => {
@@ -65,6 +72,7 @@ const Sidebar = () => {
   };
 
   const classes = useStyles();
+  const trigger = useScrollTrigger();
 
   return (
     <div className={classes.root}>
@@ -80,7 +88,7 @@ const Sidebar = () => {
           <Typography
             variant='h4'
             color='primary'
-            className={classes.LogoHeader}
+            className={trigger ? classes.hide : classes.LogoHeader}
             noWrap
           >
             Cookbook
@@ -102,7 +110,7 @@ const Sidebar = () => {
             onClose={toggleSide}
           >
             <div className={classes.toolbar} />
-            <DrawerItem  />
+            <DrawerItem />
           </Drawer>
         </Hidden>
 
@@ -115,7 +123,7 @@ const Sidebar = () => {
             open
           >
             <div className={classes.toolbar} />
-            <DrawerItem  />
+            <DrawerItem />
           </Drawer>
         </Hidden>
       </nav>
