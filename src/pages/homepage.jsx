@@ -8,6 +8,7 @@ import RecipeCard from '../components/card';
 const useStyles = makeStyles((theme) => ({
   paper: {
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
@@ -18,7 +19,7 @@ const Homepage = () => {
   const classes = useStyles();
   return (
     <div>
-      <Box className={classes.paper} >
+      <Box className={classes.paper}>
         <Search />
       </Box>
       <RecipeCard />

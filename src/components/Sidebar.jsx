@@ -42,7 +42,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   appbarItems: {
-    display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
   },
@@ -51,8 +50,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#e6e0e6',
   },
   iconbutton: {
-    marginRight: theme.spacing(2),
     [theme.breakpoints.up('sm')]: {
+      display: 'none',
       visibility: 'hidden',
     },
   },
@@ -76,7 +75,7 @@ const Sidebar = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar className={classes.appbar}>
+      <AppBar className={classes.appbar} elevation='false'>
         <Toolbar className={classes.appbarItems}>
           <IconButton
             color='primary'
@@ -85,11 +84,12 @@ const Sidebar = () => {
           >
             <Menu />
           </IconButton>
+
           <Typography
-            variant='h4'
+            variant='h5'
             color='primary'
             className={trigger ? classes.hide : classes.LogoHeader}
-            noWrap
+            align='center'
           >
             Cookbook
           </Typography>
