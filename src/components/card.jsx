@@ -35,9 +35,8 @@ export default function MediaCard() {
     <Grid
       container
       direction='row'
-      justify='space-evenly'
       alignItems='center'
-      spacing={2}
+      spacing={4}
       className={classes.root}
     >
       <Grid item xs={12} sm={6} md={4} lg={3}>
@@ -49,8 +48,16 @@ export default function MediaCard() {
               title='Contemplative Reptile'
             />
             <CardContent className={classes.content}>
-              <Typography gutterBottom variant='h5' component='h2'>
+              <Typography
+                gutterBottom
+                variant='h6'
+                component='p'
+                color='primary'
+              >
                 Lizard
+              </Typography>
+              <Typography gutterBottom variant='p' component='p'>
+                Vegetarian
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -65,8 +72,16 @@ export default function MediaCard() {
               title='Contemplative Reptile'
             />
             <CardContent className={classes.content}>
-              <Typography gutterBottom variant='h5' component='h2'>
+              <Typography
+                gutterBottom
+                variant='h6'
+                color='primary'
+                component='p'
+              >
                 Lizard
+              </Typography>
+              <Typography gutterBottom variant='p' component='p'>
+                Vegetarian
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -81,8 +96,16 @@ export default function MediaCard() {
               title='Contemplative Reptile'
             />
             <CardContent className={classes.content}>
-              <Typography gutterBottom variant='h5' component='h2'>
+              <Typography
+                gutterBottom
+                variant='h6'
+                color='primary'
+                component='p'
+              >
                 Lizard
+              </Typography>
+              <Typography gutterBottom variant='p' component='p'>
+                Vegetarian
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -97,8 +120,16 @@ export default function MediaCard() {
               title='Contemplative Reptile'
             />
             <CardContent className={classes.content}>
-              <Typography gutterBottom variant='h5' component='h2'>
+              <Typography
+                gutterBottom
+                variant='h6'
+                color='primary'
+                component='p'
+              >
                 Lizard
+              </Typography>
+              <Typography gutterBottom variant='p' component='p'>
+                Vegetarian
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -113,8 +144,16 @@ export default function MediaCard() {
               title='Contemplative Reptile'
             />
             <CardContent className={classes.content}>
-              <Typography gutterBottom variant='h5' component='h2'>
+              <Typography
+                gutterBottom
+                variant='h6'
+                color='primary'
+                component='p'
+              >
                 Lizard
+              </Typography>
+              <Typography gutterBottom variant='p' component='p'>
+                Vegetarian
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -129,8 +168,16 @@ export default function MediaCard() {
               title='Contemplative Reptile'
             />
             <CardContent className={classes.content}>
-              <Typography gutterBottom variant='h5' component='h2'>
+              <Typography
+                gutterBottom
+                variant='h6'
+                color='primary'
+                component='p'
+              >
                 Lizard
+              </Typography>
+              <Typography gutterBottom variant='p' component='p'>
+                Vegetarian
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -145,8 +192,16 @@ export default function MediaCard() {
               title='Contemplative Reptile'
             />
             <CardContent className={classes.content}>
-              <Typography gutterBottom variant='h5' component='h2'>
+              <Typography
+                gutterBottom
+                variant='h6'
+                color='primary'
+                component='p'
+              >
                 Lizard
+              </Typography>
+              <Typography gutterBottom variant='p' component='p'>
+                Vegetarian
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -161,8 +216,16 @@ export default function MediaCard() {
               title='Contemplative Reptile'
             />
             <CardContent className={classes.content}>
-              <Typography gutterBottom variant='h5' component='h2'>
+              <Typography
+                gutterBottom
+                variant='h6'
+                color='primary'
+                component='p'
+              >
                 Lizard
+              </Typography>
+              <Typography gutterBottom variant='p' component='p'>
+                Vegetarian
               </Typography>
             </CardContent>
           </CardActionArea>
