@@ -4,6 +4,8 @@ import {} from '@material-ui/icons';
 
 import Search from '../components/search';
 import RecipeCard from '../components/cardList';
+import { connect } from 'react-redux';
+import { fetchStart } from '../redux/recipe/actions';
 
 class Homepage extends React.Component {
   constructor() {
@@ -13,7 +15,7 @@ class Homepage extends React.Component {
       recipes: [],
     };
   }
-  componentDidMount = () => {
+  componentDidMount = (props) => {
     try {
       fetch(
         'https://api.edamam.com/api/recipes/v2?type=public&app_id=5a0dcf71&app_key=bbb43e9dfafda4038efeab6bdf03fe54&diet=balanced'
@@ -26,6 +28,8 @@ class Homepage extends React.Component {
   };
   render() {
     const { recipes } = this.state;
+    const { fetchStart } = this.props;
+    fetchStart();
 
     return (
       <div>
@@ -37,4 +41,8 @@ class Homepage extends React.Component {
   }
 }
 
-export default Homepage;
+const mapDispatchToProps = (dispatch) => ({
+  fetchStart: () => dispatch(fetchStart()),
+});
+
+export default connect(null, mapDispatchToProps)(Homepage);
