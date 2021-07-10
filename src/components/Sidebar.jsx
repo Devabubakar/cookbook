@@ -75,7 +75,7 @@ const Sidebar = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar className={classes.appbar} elevation='false'>
+      <AppBar className={classes.appbar} elevation={0}>
         <Toolbar className={classes.appbarItems}>
           <IconButton
             color='primary'

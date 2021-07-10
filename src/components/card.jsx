@@ -56,7 +56,7 @@ export default function MediaCard() {
               >
                 Lizard
               </Typography>
-              <Typography gutterBottom variant='p' component='p'>
+              <Typography gutterBottom component='p'>
                 Vegetarian
               </Typography>
             </CardContent>
@@ -80,7 +80,7 @@ export default function MediaCard() {
               >
                 Lizard
               </Typography>
-              <Typography gutterBottom variant='p' component='p'>
+              <Typography gutterBottom component='p'>
                 Vegetarian
               </Typography>
             </CardContent>
@@ -104,7 +104,7 @@ export default function MediaCard() {
               >
                 Lizard
               </Typography>
-              <Typography gutterBottom variant='p' component='p'>
+              <Typography gutterBottom component='p'>
                 Vegetarian
               </Typography>
             </CardContent>
@@ -128,7 +128,7 @@ export default function MediaCard() {
               >
                 Lizard
               </Typography>
-              <Typography gutterBottom variant='p' component='p'>
+              <Typography gutterBottom component='p'>
                 Vegetarian
               </Typography>
             </CardContent>
@@ -152,7 +152,7 @@ export default function MediaCard() {
               >
                 Lizard
               </Typography>
-              <Typography gutterBottom variant='p' component='p'>
+              <Typography gutterBottom component='p'>
                 Vegetarian
               </Typography>
             </CardContent>
@@ -176,7 +176,7 @@ export default function MediaCard() {
               >
                 Lizard
               </Typography>
-              <Typography gutterBottom variant='p' component='p'>
+              <Typography gutterBottom component='p'>
                 Vegetarian
               </Typography>
             </CardContent>
@@ -200,7 +200,7 @@ export default function MediaCard() {
               >
                 Lizard
               </Typography>
-              <Typography gutterBottom variant='p' component='p'>
+              <Typography gutterBottom component='p'>
                 Vegetarian
               </Typography>
             </CardContent>
@@ -224,7 +224,7 @@ export default function MediaCard() {
               >
                 Lizard
               </Typography>
-              <Typography gutterBottom variant='p' component='p'>
+              <Typography gutterBottom component='p'>
                 Vegetarian
               </Typography>
             </CardContent>
