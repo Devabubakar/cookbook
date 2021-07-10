@@ -28,7 +28,7 @@ export default function MediaCard({ recipe }) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root} raised='true'>
+    <Card className={classes.root} raised>
       <CardActionArea>
         <CardMedia className={classes.media} image={recipe.image} />
         <CardContent className={classes.content}>

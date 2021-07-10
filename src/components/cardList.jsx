@@ -9,8 +9,8 @@ const CardList = ({ recipes }) => {
         {recipes.map((recipeArray, index) => {
           const { recipe } = recipeArray;
           return (
-            <Grid item xs={12} sm={6} md={4} lg={3}>
-              <MediaCard key={index} recipe={recipe} />
+            <Grid item key={index}  xs={12} sm={6} md={4} lg={3}>
+              <MediaCard recipe={recipe} />
             </Grid>
           );
         })}

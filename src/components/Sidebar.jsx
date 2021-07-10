@@ -92,7 +92,7 @@ const Sidebar = () => {
 
           <Typography
             variant='h5'
-            color='primary'
+            color='secondary'
             className={trigger ? classes.hide : classes.LogoHeader}
             align='center'
           >
