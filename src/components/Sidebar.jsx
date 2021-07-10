@@ -9,7 +9,7 @@ import {
   Typography,
   useScrollTrigger,
 } from '@material-ui/core';
-import { Menu, Brightness2 } from '@material-ui/icons';
+import { Menu, Brightness2, Close } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 import DrawerItem from './drawer';
 
@@ -62,6 +62,11 @@ const useStyles = makeStyles((theme) => ({
     visibility: 'hidden',
     display: 'none',
   },
+  closeIcon: {
+    position: 'absolute',
+    right: '0',
+    height: '10vh',
+  },
 }));
 
 const Sidebar = () => {
@@ -110,6 +115,12 @@ const Sidebar = () => {
             onClose={toggleSide}
           >
             <div className={classes.toolbar} />
+            <Close
+              className={classes.closeIcon}
+              onClick={toggleSide}
+              fontSize='large'
+              color='secondary'
+            />
             <DrawerItem />
           </Drawer>
         </Hidden>
