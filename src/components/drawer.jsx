@@ -52,9 +52,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
   },
   ListItemButton: {
+    
     borderRadius: '15px',
     '&:hover': {
-      backgroundColor: 'rgba(59,130,246,0.5)',
+      backgroundColor: '#E73655',
     },
   },
 }));
@@ -83,8 +84,8 @@ const DrawerItem = ({ history }) => {
               className={classes.ListItemButton}
               onClick={() => history.push(link)}
             >
-              <ListItemIcon>{icon}</ListItemIcon>
-              <ListItemText primary={item} />
+              <ListItemIcon color='secondary'>{icon}</ListItemIcon>
+              <ListItemText primary={item}  />
             </ListItem>
           );
         })}
