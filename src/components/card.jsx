@@ -28,18 +28,14 @@ export default function MediaCard({ recipe }) {
   const classes = useStyles();
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} raised='true'>
       <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={recipe.image}
-          title='Contemplative Reptile'
-        />
+        <CardMedia className={classes.media} image={recipe.image} />
         <CardContent className={classes.content}>
           <Typography gutterBottom color='primary'>
             {recipe.label}
           </Typography>
-          <Chip label={recipe.healthLabels[0]} color='secondary'/>
+          <Chip label={recipe.healthLabels[0]} color='secondary' />
         </CardContent>
       </CardActionArea>
     </Card>
