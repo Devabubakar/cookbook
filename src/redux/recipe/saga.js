@@ -1,10 +1,21 @@
-import { takeEvery } from 'redux-saga/effects';
+import { takeLatest, all, call, put } from 'redux-saga/effects';
 import recipeTypes from './types';
+import { fetchSuccess, fetchFailure } from './actions';
+import { getApiData } from './utils';
 
-export function* fetchAsync() {
-  yield console.log('HEllo world');
+export function* fetchStart() {
+  try {
+    const recipeData = yield call(getApiData);
+    yield put(fetchSuccess(recipeData));
+  } catch (error) {
+    yield put(fetchFailure(error));
+  }
 }
 
-export default function* recipeSaga() {
-  yield takeEvery(recipeTypes.FETCH_START, fetchAsync);
+export function* onFetchStart() {
+  yield takeLatest(recipeTypes.FETCH_START, fetchStart);
+}
+
+export default function* recipeSagas() {
+  yield all([call(onFetchStart)]);
 }
