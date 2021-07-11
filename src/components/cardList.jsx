@@ -8,7 +8,7 @@ import { compose } from 'redux';
 import withSpinner from './withSpinner';
 
 const CardList = ({ recipes }) => {
-  console.log('HELlo', recipes);
+  
 
   return (
     <div>
