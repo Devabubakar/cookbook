@@ -1,7 +1,7 @@
 import recipeTypes from './types';
 
 const INITIAL_STATE = {
-  recipes: [],
+  recipes: null,
   isFetching: false,
   errorMessage: undefined,
 };

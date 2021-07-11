@@ -2,10 +2,14 @@ import React from 'react';
 import { Grid } from '@material-ui/core';
 import MediaCard from './card';
 import { connect } from 'react-redux';
-import  {createStructuredSelector}  from 'reselect';
-import { selectRecipes } from '../redux/recipe/selectors';
+import { createStructuredSelector } from 'reselect';
+import { selectRecipes, isLoaded } from '../redux/recipe/selectors';
+import { compose } from 'redux';
+import withSpinner from './withSpinner';
 
 const CardList = ({ recipes }) => {
+  console.log('HELlo', recipes);
+
   return (
     <div>
       <Grid container direction='row' alignItems='center' spacing={4}>
@@ -24,6 +28,7 @@ const CardList = ({ recipes }) => {
 
 const mapStateToProps = createStructuredSelector({
   recipes: selectRecipes,
+  isLoading: (state) => !isLoaded(state),
 });
 
-export default connect(mapStateToProps)(CardList);
+export default compose(connect(mapStateToProps), withSpinner)(CardList);
