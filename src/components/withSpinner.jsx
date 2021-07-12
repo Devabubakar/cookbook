@@ -4,11 +4,11 @@ import { styled } from '@material-ui/core/styles';
 
 const PreLoader = styled(LinearProgress)({
   position: 'absolute',
-  width: '100%',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  height:'20px'
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%,-50%)',
+  width: '100vw',
+  height: '10px',
 });
 
 const WithSpinner = (WrappedComponent) => {
