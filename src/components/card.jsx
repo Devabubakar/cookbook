@@ -6,6 +6,8 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
+import { withRouter } from 'react-router-dom';
+
 import Typography from '@material-ui/core/Typography';
 import { Chip } from '@material-ui/core';
 
@@ -24,11 +26,16 @@ const useStyles = makeStyles({
   },
 });
 
-export default function MediaCard({ recipe }) {
+function MediaCard({ recipe, history, match }) {
   const classes = useStyles();
+  
 
   return (
-    <Card className={classes.root} raised>
+    <Card
+      className={classes.root}
+      raised
+      onClick={() => history.push(`/recipe/${recipe.label}`)}
+    >
       <CardActionArea>
         <CardMedia className={classes.media} image={recipe.image} />
         <CardContent className={classes.content}>
@@ -41,3 +48,5 @@ export default function MediaCard({ recipe }) {
     </Card>
   );
 }
+
+export default withRouter(MediaCard);

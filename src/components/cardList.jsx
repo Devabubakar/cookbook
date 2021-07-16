@@ -3,13 +3,11 @@ import { Grid } from '@material-ui/core';
 import MediaCard from './card';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { selectRecipes, isLoaded } from '../redux/recipe/selectors';
+import { recipesSelector, isLoaded } from '../redux/recipe/selectors';
 import { compose } from 'redux';
 import withSpinner from './withSpinner';
 
 const CardList = ({ recipes }) => {
-  
-
   return (
     <div>
       <Grid container direction='row' alignItems='center' spacing={4}>
@@ -27,7 +25,7 @@ const CardList = ({ recipes }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  recipes: selectRecipes,
+  recipes: recipesSelector,
   isLoading: (state) => !isLoaded(state),
 });
 

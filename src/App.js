@@ -5,6 +5,7 @@ import Create from './components/create';
 import Signup from './components/signup';
 import Sidebar from './components/sidebar';
 import Homepage from './pages/homepage';
+import Recipe from './components/recipe';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -26,6 +27,7 @@ function App() {
           <div className={classes.toolbar} />
           <Switch>
             <Route exact path='/' component={Homepage} />
+            <Route exact path='/recipe/:id' component={Recipe} />
             <Route exact path='/bookmark' component={Bookmark} />
             <Route exact path='/categories' component={Categories} />
             <Route exact path='/create' component={Create} />
