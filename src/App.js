@@ -7,12 +7,17 @@ import Sidebar from './components/sidebar';
 import Homepage from './pages/homepage';
 import Recipe from './components/recipe';
 import { makeStyles } from '@material-ui/core/styles';
+import '@fontsource/roboto'; // Defaults to weight 400.
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    fontFamily: 'Roboto',
+  },
   toolbar: theme.mixins.toolbar,
   container: {
     padding: theme.spacing(3),
-    [theme.breakpoints.up('sm')]: { //push content adjacent to sidebar on larger screens
+    [theme.breakpoints.up('sm')]: {
+      //push content adjacent to sidebar on larger screens
       marginLeft: '240px',
     },
   },

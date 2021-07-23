@@ -1,47 +1,65 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { Grid, Typography } from '@material-ui/core/';
+
+import { selectIndividualRecipe } from '../redux/recipe/selectors';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    display: 'block ',
+  item1: {
+    order: 3,
+    [theme.breakpoints.up('sm')]: {
+      order: 2,
+    },
   },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
+  item2: {
+    order: 2,
+    [theme.breakpoints.up('sm')]: {
+      order: 3,
+    },
   },
 }));
 
-export default function Recipe() {
+const Recipe = ({ recipes }) => {
+  const { recipe } = recipes;
   const classes = useStyles();
-
   return (
-    <div className={classes.root}>
-      <Grid container spacing={3} style={{ display: 'block !important' }}>
-        <Grid item xs>
-          <Paper className={classes.paper}>xs</Paper>
-        </Grid>
-        <Grid item xs>
-          <Paper className={classes.paper}>xs</Paper>
-        </Grid>
-        <Grid item xs>
-          <Paper className={classes.paper}>xs</Paper>
+    <Grid
+      container
+      justify='space-between'
+      direction='row'
+      style={{ textAlign: 'center' }}
+    >
+      <Grid item xs className={classes.item1}>
+        <Typography variant='h2' gutterBottom>
+          {recipe.label}
+        </Typography>
+        <Grid container>
+          <Grid item xs>
+            <Typography variant='h4'>12</Typography>
+            <Typography color='primary'>Ingredients</Typography>
+          </Grid>
+          <Grid item xs>
+            <Typography variant='h4'>250</Typography>
+            <Typography color='primary'>Minutes</Typography>
+          </Grid>
+          <Grid item xs>
+            <Typography variant='h4'>210</Typography>
+            <Typography color='primary'>Minutes</Typography>
+          </Grid>
         </Grid>
       </Grid>
-      <Grid container spacing={3}>
-        <Grid item xs>
-          <Paper className={classes.paper}>xs</Paper>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>xs=6</Paper>
-        </Grid>
-        <Grid item xs>
-          <Paper className={classes.paper}>xs</Paper>
-        </Grid>
+
+      <Grid item xs className={classes.item2}>
+        <img src={recipe.image} alt='recipe' />
       </Grid>
-    </div>
+    </Grid>
   );
-}
+};
+
+const mapStateToProps = (state, ownProps) => ({
+  recipes: selectIndividualRecipe(ownProps.match.params.id)(state),
+});
+
+export default connect(mapStateToProps)(Recipe);
