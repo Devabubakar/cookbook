@@ -9,12 +9,12 @@ import Recipe from './components/recipe';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
   toolbar: theme.mixins.toolbar,
   container: {
     padding: theme.spacing(3),
+    [theme.breakpoints.up('sm')]: { //push content adjacent to sidebar on larger screens
+      marginLeft: '240px',
+    },
   },
 }));
 function App() {
