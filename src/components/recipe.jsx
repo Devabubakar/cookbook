@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Grid, Typography } from '@material-ui/core/';
+import { Grid, Typography, Chip } from '@material-ui/core/';
 
 import { selectIndividualRecipe } from '../redux/recipe/selectors';
 import { makeStyles } from '@material-ui/core/styles';
 
+//Grid stacking to change order in smaller screens
 const useStyles = makeStyles((theme) => ({
   item1: {
     order: 3,
@@ -19,42 +20,75 @@ const useStyles = makeStyles((theme) => ({
       order: 3,
     },
   },
+  image: {
+    borderRadius: '15px',
+  },
 }));
 
 const Recipe = ({ recipes }) => {
   const { recipe } = recipes;
   const classes = useStyles();
   return (
-    <Grid
-      container
-      justify='space-between'
-      direction='row'
-      style={{ textAlign: 'center' }}
-    >
-      <Grid item xs className={classes.item1}>
-        <Typography variant='h2' gutterBottom>
-          {recipe.label}
-        </Typography>
-        <Grid container>
-          <Grid item xs>
-            <Typography variant='h4'>12</Typography>
-            <Typography color='primary'>Ingredients</Typography>
+    <div className=''>
+      <Grid
+        container
+        justify='space-between'
+        direction='row'
+        style={{ textAlign: 'center' }}
+      >
+        {/*item one*/}
+        <Grid item xs className={classes.item1} gutterBottom>
+          {/*Recipe Name*/}
+          <Typography
+            variant='overline'
+            gutterBottom
+            style={{ fontSize: '2rem' }}
+          >
+            {recipe.label}
+          </Typography>
+
+          {/* Recipe Information*/}
+          <Grid container gutterBottom>
+            <Grid item xs>
+              <Typography variant='h4'>{recipe.ingredients.length}</Typography>
+              <Typography color='primary'>Ingredients</Typography>
+            </Grid>
+            <Grid item xs>
+              <Typography variant='h4' gt>
+                {recipe.totalTime}
+              </Typography>
+              <Typography color='primary'>Minutes</Typography>
+            </Grid>
+            <Grid item xs>
+              <Typography variant='h4'>{recipe.calories.toFixed(0)}</Typography>
+              <Typography color='primary'>Calories</Typography>
+            </Grid>
           </Grid>
-          <Grid item xs>
-            <Typography variant='h4'>250</Typography>
-            <Typography color='primary'>Minutes</Typography>
-          </Grid>
-          <Grid item xs>
-            <Typography variant='h4'>210</Typography>
-            <Typography color='primary'>Minutes</Typography>
-          </Grid>
+
+          {/*ingredients*/}
+          <Typography variant='h5' style={{ margin: '20px' }}>
+            Ingredients
+          </Typography>
+          {recipe.ingredientLines.map((ingredients) => (
+            <Chip
+              label={ingredients}
+              color='secondary'
+              style={{ margin: '1px' }}
+            />
+          ))}
+        </Grid>
+
+        {/*item 2*/}
+
+        <Grid item xs className={classes.item2}>
+          <img src={recipe.image} alt='recipe' className={classes.image} />
         </Grid>
       </Grid>
-
-      <Grid item xs className={classes.item2}>
-        <img src={recipe.image} alt='recipe' />
-      </Grid>
-    </Grid>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero distinctio
+        eveniet ipsum ipsa voluptatum ratione nemo, repellendus quos modi quas!
+      </p>
+    </div>
   );
 };
 
