@@ -14,3 +14,5 @@ export default function toggleBoomark(bookmarks, bookmarkItem) {
   //if bookmarkItem doesn't exists add it into the bookmarkStore
   return [...bookmarks, { ...bookmarkItem }];
 }
+
+

@@ -6,3 +6,4 @@ export const bookmarksSelector = createSelector(
   [bookmarkStoreSelector],
   (bookmarkStore) => bookmarkStore.bookmarks
 );
+
