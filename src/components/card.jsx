@@ -26,23 +26,23 @@ const useStyles = makeStyles({
   },
 });
 
-function MediaCard({ recipe, history, match }) {
+function MediaCard({ meal, history, match }) {
   const classes = useStyles();
-  
+  console.log(meal);
 
   return (
     <Card
       className={classes.root}
       raised
-      onClick={() => history.push(`/recipe/${recipe.label}`)}
+      onClick={() => history.push(`/recipe/${meal.idMeal}`)}
     >
       <CardActionArea>
-        <CardMedia className={classes.media} image={recipe.image} />
+        <CardMedia className={classes.media} image={meal.strMealThumb} />
         <CardContent className={classes.content}>
           <Typography gutterBottom color='primary'>
-            {recipe.label}
+            {meal.strMeal}
           </Typography>
-          <Chip label={recipe.healthLabels[0]} color='secondary' />
+          <Chip color='secondary' label={meal.strCategory} />
         </CardContent>
       </CardActionArea>
     </Card>
