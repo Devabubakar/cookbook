@@ -1,10 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { Grid, Typography, Chip } from '@material-ui/core/';
+import { Grid, Typography, Chip } from '@material-ui/core';
+
+import { BookmarkBorder } from '@material-ui/icons';
 
 import { selectIndividualRecipe } from '../redux/recipe/selectors';
 import { makeStyles } from '@material-ui/core/styles';
+import { toggleBookmark } from '../redux/bookmark/actions';
+import { bookmarksSelector } from '../redux/bookmark/selectors';
 
 //Grid stacking to change order in smaller screens
 const useStyles = makeStyles((theme) => ({
@@ -12,9 +16,19 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '15px',
     height: '300px',
   },
+  bookmark: {
+    position: 'absolute',
+    top: '80px',
+    right: '2vw',
+    fontSize: '3rem',
+  },
+  imagelist: {
+    height: '300px',
+  },
 }));
 
-const Recipe = ({ meal }) => {
+const Recipe = ({ meal, dispatch, bookmarks }) => {
+  
   //create ingredients array
   function createIngredientsArray(meal) {
     let ingredientsData;
@@ -37,7 +51,7 @@ const Recipe = ({ meal }) => {
     <div className=''>
       <Grid
         container
-        justify='space-between'
+        justifyContent='space-between'
         direction='row'
         style={{ textAlign: 'center' }}
       >
@@ -63,7 +77,11 @@ const Recipe = ({ meal }) => {
             </Grid>
           </Grid>
           {/*ingredients*/}
-          <Typography variant='overline' color='primary' style={{ fontSize: '2rem' }}>
+          <Typography
+            variant='overline'
+            color='primary'
+            style={{ fontSize: '2rem' }}
+          >
             Ingredients
           </Typography>
           <br />
@@ -80,16 +98,24 @@ const Recipe = ({ meal }) => {
         {/*item 2*/}
 
         <Grid item xs>
-          <img src={meal.strMealThumb} alt='recipe' className={classes.image} />
+          <img src={meal.strMealThumb} alt='meal' className={classes.image} />
+          <BookmarkBorder
+            className={classes.bookmark}
+            onClick={() => dispatch(toggleBookmark(meal))}
+          />
         </Grid>
       </Grid>
-      <Typography variant='subtitle1' style={{marginTop:'3vh'}} Wrap> {meal.strInstructions}</Typography>
+      <Typography variant='subtitle1' style={{ marginTop: '3vh' }}>
+        {' '}
+        {meal.strInstructions}
+      </Typography>
     </div>
   );
 };
 
 const mapStateToProps = (state, ownProps) => ({
   meal: selectIndividualRecipe(ownProps.match.params.id)(state),
+  bookmarks: bookmarksSelector(state),
 });
 
 export default connect(mapStateToProps)(Recipe);

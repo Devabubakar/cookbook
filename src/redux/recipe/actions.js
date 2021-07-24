@@ -13,3 +13,7 @@ export const fetchFailure = (error) => ({
   type: recipeTypes.FETCH_FAILURE,
   payload: error,
 });
+
+export const bookmarkRecipe = () => ({
+  type: recipeTypes.BOOKMARK_RECIPE,
+});

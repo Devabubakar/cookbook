@@ -35,6 +35,7 @@ function MediaCard({ meal, history, match }) {
     <Card
       className={classes.root}
       raised
+      
       onClick={() => history.push(`/recipe/${meal.idMeal}`)}
     >
       <CardActionArea>
