@@ -23,5 +23,5 @@ export const collectionObject = createSelector([recipesSelector], (meals) =>
 //selects individual recipe
 export const selectIndividualRecipe = (customUrlParam) =>
   createSelector([recipesSelector], (recipes) =>
-    recipes.find((recipes) => recipes.recipe.label === customUrlParam)
+    recipes.meals.find((meal) => meal.idMeal === customUrlParam)
   );

@@ -8,25 +8,30 @@ import { makeStyles } from '@material-ui/core/styles';
 
 //Grid stacking to change order in smaller screens
 const useStyles = makeStyles((theme) => ({
-  item1: {
-    order: 3,
-    [theme.breakpoints.up('sm')]: {
-      order: 2,
-    },
-  },
-  item2: {
-    order: 2,
-    [theme.breakpoints.up('sm')]: {
-      order: 3,
-    },
-  },
   image: {
     borderRadius: '15px',
+    height: '300px',
   },
 }));
 
-const Recipe = ({ recipes }) => {
-  const { recipe } = recipes;
+const Recipe = ({ meal }) => {
+  //create ingredients array
+  function createIngredientsArray(meal) {
+    let ingredientsData;
+    if ((ingredientsData = [])) {
+      for (let i = 1; i < 20; i++) {
+        if (meal[`strIngredient${i}`]) {
+          ingredientsData.push(meal[`strIngredient${i}`]);
+        } else {
+          break;
+        }
+      }
+    }
+    return ingredientsData;
+  }
+
+  const ingredients = createIngredientsArray(meal);
+
   const classes = useStyles();
   return (
     <div className=''>
@@ -37,42 +42,36 @@ const Recipe = ({ recipes }) => {
         style={{ textAlign: 'center' }}
       >
         {/*item one*/}
-        <Grid item xs className={classes.item1} gutterBottom>
+        <Grid item xs className={classes.item1}>
           {/*Recipe Name*/}
-          <Typography
-            variant='overline'
-            gutterBottom
-            style={{ fontSize: '2rem' }}
-          >
-            {recipe.label}
+          <Typography variant='overline' style={{ fontSize: '3rem' }}>
+            {meal.strMeal}
           </Typography>
-
           {/* Recipe Information*/}
-          <Grid container gutterBottom>
+          <Grid container>
             <Grid item xs>
-              <Typography variant='h4'>{recipe.ingredients.length}</Typography>
-              <Typography color='primary'>Ingredients</Typography>
-            </Grid>
-            <Grid item xs>
-              <Typography variant='h4' gt>
-                {recipe.totalTime}
+              <Typography variant='h5'>{meal.strArea}</Typography>
+              <Typography color='primary' variant='overline'>
+                Cuisine
               </Typography>
-              <Typography color='primary'>Minutes</Typography>
             </Grid>
             <Grid item xs>
-              <Typography variant='h4'>{recipe.calories.toFixed(0)}</Typography>
-              <Typography color='primary'>Calories</Typography>
+              <Typography variant='h5'>{ingredients.length}</Typography>
+              <Typography color='primary' variant='overline'>
+                Ingredients
+              </Typography>
             </Grid>
           </Grid>
-
           {/*ingredients*/}
-          <Typography variant='h5' style={{ margin: '20px' }}>
+          <Typography variant='overline' color='primary' style={{ fontSize: '2rem' }}>
             Ingredients
           </Typography>
-          {recipe.ingredientLines.map((ingredients) => (
+          <br />
+          {ingredients.map((ingredient, index) => (
             <Chip
-              label={ingredients}
               color='secondary'
+              label={ingredient}
+              key={index}
               style={{ margin: '1px' }}
             />
           ))}
@@ -80,20 +79,17 @@ const Recipe = ({ recipes }) => {
 
         {/*item 2*/}
 
-        <Grid item xs className={classes.item2}>
-          <img src={recipe.image} alt='recipe' className={classes.image} />
+        <Grid item xs>
+          <img src={meal.strMealThumb} alt='recipe' className={classes.image} />
         </Grid>
       </Grid>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero distinctio
-        eveniet ipsum ipsa voluptatum ratione nemo, repellendus quos modi quas!
-      </p>
+      <Typography variant='subtitle1' style={{marginTop:'3vh'}} Wrap> {meal.strInstructions}</Typography>
     </div>
   );
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  recipes: selectIndividualRecipe(ownProps.match.params.id)(state),
+  meal: selectIndividualRecipe(ownProps.match.params.id)(state),
 });
 
 export default connect(mapStateToProps)(Recipe);

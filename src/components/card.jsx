@@ -14,11 +14,13 @@ import { Chip } from '@material-ui/core';
 const useStyles = makeStyles({
   root: {
     marginTop: '10px',
+    borderRadius:'15px',
 
     height: 'auto',
   },
   media: {
     height: 150,
+    
   },
 
   content: {
@@ -28,7 +30,6 @@ const useStyles = makeStyles({
 
 function MediaCard({ meal, history, match }) {
   const classes = useStyles();
-  console.log(meal);
 
   return (
     <Card
