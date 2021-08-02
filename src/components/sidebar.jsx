@@ -96,7 +96,7 @@ const Sidebar = () => {
             className={trigger ? classes.hide : classes.LogoHeader}
             align='center'
           >
-            CookBook
+            Cookbook
           </Typography>
           <IconButton className={classes.darkmode}>
             <Brightness2 />

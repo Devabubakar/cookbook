@@ -1,3 +1,4 @@
+import {  fetchFailure } from './actions';
 export const getApiData = async () => {
   try {
     const response = await fetch(
@@ -6,6 +7,6 @@ export const getApiData = async () => {
 
     return response;
   } catch (error) {
-    console.log('error', error);
+    fetchFailure(error);
   }
 };

@@ -1,5 +1,7 @@
 const bookmarkTypes = {
-  TOGGLE_BOOKMARK: 'TOGGLE_BOOKMARK',
+  BOOKMARK_ADD: 'BOOKMARK_ADD',
+  BOOKMARK_REMOVE: 'BOOKMARK_REMOVE',
+  BOOKMARK_SUCCESS: 'BOOKMARK_SUCCESS',
 };
 
 export default bookmarkTypes;

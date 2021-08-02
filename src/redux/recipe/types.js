@@ -2,7 +2,6 @@ const recipeTypes = {
   FETCH_START: 'FETCH_START',
   FETCH_SUCCESS: 'FETCH_SUCCESS',
   FETCH_FAILURE: 'FETCH_FAILURE',
-  BOOKMARK_RECIPE: 'BOOKMARK_RECIPE',
 };
 
 export default recipeTypes;

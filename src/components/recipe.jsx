@@ -7,7 +7,7 @@ import { BookmarkBorder, Bookmark } from '@material-ui/icons';
 
 import { selectIndividualRecipe } from '../redux/recipe/selectors';
 import { makeStyles } from '@material-ui/core/styles';
-import { toggleBookmark } from '../redux/bookmark/actions';
+import { bookmarkAdd, bookmarkRemove } from '../redux/bookmark/actions';
 import { bookmarksSelector } from '../redux/bookmark/selectors';
 
 //Grid stacking to change order in smaller screens
@@ -27,7 +27,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Recipe = ({ meal, dispatch, bookmarks }) => {
+const Recipe = ({ meal, bookmarks, bookmarkAdd, bookmarkRemove }) => {
+  //
+
   //check if meal is present in bookmark store //return results in boolean value
   const Bookmarked = !!bookmarks.find(
     (bookmark) => bookmark.idMeal === meal.idMeal
@@ -106,12 +108,12 @@ const Recipe = ({ meal, dispatch, bookmarks }) => {
           {Bookmarked ? (
             <Bookmark
               className={classes.bookmark}
-              onClick={() => dispatch(toggleBookmark(meal))}
+              onClick={() => bookmarkRemove({ bookmarks, meal })}
             />
           ) : (
             <BookmarkBorder
               className={classes.bookmark}
-              onClick={() => dispatch(toggleBookmark(meal))}
+              onClick={() => bookmarkAdd({ bookmarks, meal })}
             />
           )}
         </Grid>
@@ -129,4 +131,11 @@ const mapStateToProps = (state, ownProps) => ({
   bookmarks: bookmarksSelector(state),
 });
 
-export default connect(mapStateToProps)(Recipe);
+const mapDispatchToProps = (dispatch) => ({
+  bookmarkAdd: ({ bookmarks, meal }) =>
+    dispatch(bookmarkAdd({ bookmarks, meal })),
+  bookmarkRemove: ({ bookmarks, meal }) =>
+    dispatch(bookmarkRemove({ bookmarks, meal })),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Recipe);
