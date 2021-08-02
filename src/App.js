@@ -8,6 +8,7 @@ import Homepage from './pages/homepage';
 import Recipe from './components/recipe';
 import { makeStyles } from '@material-ui/core/styles';
 import '@fontsource/roboto'; // Defaults to weight 400.
+import CustomizedSnackBar from './components/snackbar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,10 +27,13 @@ function App() {
   const classes = useStyles();
   return (
     <div className='App'>
+      <CustomizedSnackBar />
+
       <div className={classes.root}>
         <Sidebar />
         <div className={classes.container}>
-          <div className={classes.toolbar} />
+          <div className={classes.toolbar} />{' '}
+          {/*Provides space between searchBar/Content and AppBar*/}
           <Switch>
             <Route exact path='/' component={Homepage} />
             <Route exact path='/recipe/:id' component={Recipe} />

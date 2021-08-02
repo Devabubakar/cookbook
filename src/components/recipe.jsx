@@ -8,6 +8,7 @@ import { BookmarkBorder, Bookmark } from '@material-ui/icons';
 import { selectIndividualRecipe } from '../redux/recipe/selectors';
 import { makeStyles } from '@material-ui/core/styles';
 import { bookmarkAdd, bookmarkRemove } from '../redux/bookmark/actions';
+
 import { bookmarksSelector } from '../redux/bookmark/selectors';
 
 //Grid stacking to change order in smaller screens
@@ -113,7 +114,10 @@ const Recipe = ({ meal, bookmarks, bookmarkAdd, bookmarkRemove }) => {
           ) : (
             <BookmarkBorder
               className={classes.bookmark}
-              onClick={() => bookmarkAdd({ bookmarks, meal })}
+              onClick={
+                (() => 
+                bookmarkAdd({ bookmarks, meal }))
+              }
             />
           )}
         </Grid>
