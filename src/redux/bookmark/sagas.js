@@ -1,4 +1,4 @@
-import { call, takeLatest, all, put, takeEvery } from 'redux-saga/effects';
+import { call, takeLatest, all, put } from 'redux-saga/effects';
 import bookmarkTypes from './types';
 import { bookmarkSuccess } from './actions';
 import { setSnackBar } from '../snackbar/actions';

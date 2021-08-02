@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+
 import { Snackbar } from '@material-ui/core/';
 import Alert from '@material-ui/lab/Alert';
 import { connect } from 'react-redux';
@@ -32,7 +32,7 @@ function CustomizedSnackBar({
       return;
     }
 
-    dispatch(setSnackBar(false, '', ''));
+    dispatch(setSnackBar(false, '', '')); //resets after clossing
   };
 
   const classes = useStyles();
@@ -45,7 +45,7 @@ function CustomizedSnackBar({
           horizontal: 'center',
         }}
         open={snackBarOpen}
-        autoHideDuration={3000}
+        autoHideDuration={2000}
         message={snackBarMessage}
         onClose={handleClose}
       >
