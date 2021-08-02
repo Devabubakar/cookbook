@@ -14,13 +14,12 @@ import { Chip } from '@material-ui/core';
 const useStyles = makeStyles({
   root: {
     marginTop: '10px',
-    borderRadius:'15px',
+    borderRadius: '15px',
 
     height: 'auto',
   },
   media: {
     height: 150,
-    
   },
 
   content: {
@@ -32,22 +31,24 @@ function MediaCard({ meal, history, match }) {
   const classes = useStyles();
 
   return (
-    <Card
-      className={classes.root}
-      raised
+    <div>
       
-      onClick={() => history.push(`/recipe/${meal.idMeal}`)}
-    >
-      <CardActionArea>
-        <CardMedia className={classes.media} image={meal.strMealThumb} />
-        <CardContent className={classes.content}>
-          <Typography gutterBottom color='primary'>
-            {meal.strMeal}
-          </Typography>
-          <Chip color='secondary' label={meal.strCategory} />
-        </CardContent>
-      </CardActionArea>
-    </Card>
+      <Card
+        className={classes.root}
+        onClick={() => history.push(`/recipe/${meal.idMeal}`)}
+        raised
+      >
+        <CardActionArea>
+          <CardMedia className={classes.media} image={meal.strMealThumb} />
+          <CardContent className={classes.content}>
+            <Typography gutterBottom color='primary'>
+              {meal.strMeal}
+            </Typography>
+            <Chip color='secondary' label={meal.strCategory} />
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    </div>
   );
 }
 

@@ -32,7 +32,7 @@ function CustomizedSnackBar({
       return;
     }
 
-    dispatch(setSnackBar(false, '', '')); //resets after clossing
+    dispatch(setSnackBar(false, '', 'success')); //resets after clossing
   };
 
   const classes = useStyles();
