@@ -36,7 +36,7 @@ const Bookmark = ({ meals }) => {
                 align='center'
                 gutterBottom
               >
-                Empty Bookmark 🙃
+                Empty  🙃
               </Typography>
               <Typography variant='h5' color='primary' align='center'>
                 Bookmark a Recipe and It will show up here.
