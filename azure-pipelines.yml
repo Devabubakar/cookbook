@@ -20,6 +20,7 @@ steps:
     appType: 'webAppLinux'
     WebAppName: 'wikifood'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+- task: PublishBuildArtifacts@1
 
 - script: |
     npm install
