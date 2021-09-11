@@ -8,12 +8,18 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-
 steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure for Students (f03a6ac1-eb22-45ef-a1fb-9bf3a567e609)'
+    appType: 'webAppLinux'
+    WebAppName: 'wikifood'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
 - script: |
     npm install
